@@ -1,0 +1,26 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}
+  Library - List of all books
+{% endblock %}
+
+
+{% block content %}
+  <style>
+    .list-group a {
+      text-decoration: none;
+    }
+  </style>
+
+  <div class='container m-5'>
+    <!--  class='text-danger' -->
+    <h2  style="color: yellow;" >本館藏書</h2>
+    
+        <ul class="list-group" style="font-weight:bold;">
+          {% for x in mybooks %}
+            <li class="list-group-item  bg-transparent"><a href="book_details/{{ x.id }}" style="color: white;">{{ x.bookname }}</a>  &emsp; 剩餘數量：{{ x.lastQuantity }} &emsp; ISBN : {{ x.ISBN }}</li>
+          {% endfor %}
+        </ul>
+
+  </div>
+{% endblock %}

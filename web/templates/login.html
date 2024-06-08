@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+
+{% block title %}
+  阿里山森林圖書館
+{% endblock %}
+
+{% block content %}
+
+  <h3>登入</h3>
+  {{ message }}<br>
+
+    {% if request.user.is_authenticated %}
+      <p>目前以 {{ request.user.username }} 身分登入</p>
+      <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <form action="." method="post">
+        {% csrf_token %}
+        <label for="username">使用者名稱: </label>
+        {{ login_form.username }}
+        <br>
+        <label for="password">密碼: </label>
+        {{ login_form.password }}
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+  逢甲館藏書籍圖書館
+{% endblock %}
+
+{% block content %}
+  <style>
+    .card-img-top {
+      opacity: 0.5; /* 將圖片的透明度設定為 0.5 */
+    }   
+
+    .card-img-top:hover {
+      opacity: 1; /* 當滑鼠懸停在圖片上時，將透明度設定為 1 */
+    }
+
+    .card-body a{
+      text-decoration: none;
+    }
+    
+  </style>
+
+  <link rel="stylesheet" href="{% static '/css/mainpage.css' %}">
+
+  <!-- 主要書的展示區域 -->
+  <div class="card">
+    <div class="card-header">
+      近日熱門
+    </div>
+    <div class="card-body">
+      
+      <div class="card">
+        
+        <img src= {{ book1.photo.url }} class="card-img-top" >
+        
+        <div class="card-body">
+          <a href="https://a-wei.com.tw/index/product/productinfo/id/22098.html" target="_blank">{{ book1.bookname }}  <br>評價：{{ book1.rate }}/10</a>
+          
+        </div>
+      </div>
+
+      <div class="card">
+        <img src= {{ book2.photo.url }} class="card-img-top" >
+        <div class="card-body">
+          <a href="https://www.books.com.tw/products/0010918835" target="_blank">{{ book2.bookname }} <br>評價：{{ book2.rate }}/10</a>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src= {{ book3.photo.url }} class="card-img-top" >
+        <div class="card-body">
+          <a href="https://www.books.com.tw/products/0010768029" target="_blank">{{ book3.bookname }} <br>評價：{{ book3.rate }}/10</a>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src= {{ book4.photo.url }} class="card-img-top" >
+        <div class="card-body">
+          <a href="https://www.books.com.tw/products/0010440628" target="_blank">{{ book4.bookname }} <br>評價：{{ book4.rate }}/10</a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap 的 JavaScript 插件 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ mybook.bookname }}
+{% endblock %}
+
+
+{% block content %}
+
+  <h1>{{ mybook.bookname }}</h1>
+
+  <img src= {{ mybook.photo.url }}><br>
+
+  <p style="color: white;">
+    ISBN：{{ mybook.ISBN }}<br>
+    作者：{{ mybook.author }}<br>
+    評分：{{ mybook.rate}}<br>
+    剩餘可借數量：{{ mybook.lastQuantity }}<br>
+  </p>
+
+  <p style="color: white;">回到 <a href="/books">本館藏書</a></p>
+
+{% endblock %}

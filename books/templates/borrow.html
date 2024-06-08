@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+
+{% block title %}
+  阿里山森林圖書館
+{% endblock %}
+
+{% block content %}
+  <h1>圖書館借閱系統
+  </h1>
+
+  <h3>借閱</h3>
+
+  <form method="post" action="{% url 'borrow' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label for="ISBN">ISBN：</label>
+    <input type="text" id="ISBN" name="ISBN" placeholder="979-0-00-000000-0" required>
+    <br>
+
+    <button type="submit">借閱</button>
+  </form><br>
+
+  {% if success %}
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <span style="font-size: 18px;"><strong>借書成功！</strong></span> {{ success }}
+    </div>
+  {% elif error %}
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <span style="font-size: 18px;"><strong>借書失敗！</strong></span> {{ error }}
+    </div>
+  {% endif %}
+
+{% endblock %}
